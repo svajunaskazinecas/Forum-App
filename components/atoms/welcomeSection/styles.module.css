@@ -1,0 +1,16 @@
+.main {
+  background-image: url(../../../images/landing_photo.jpg);
+  height: 45rem;
+  width: 100vw;
+  background-size: contain;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+  padding-top: 40rem;
+  color: white;
+  font-size: 1.5rem;
+}
