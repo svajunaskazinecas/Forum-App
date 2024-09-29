@@ -1,0 +1,12 @@
+.main {
+  height: 80px;
+  background-color: var(--secondary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.main span {
+  color: var(--primary-color);
+}
