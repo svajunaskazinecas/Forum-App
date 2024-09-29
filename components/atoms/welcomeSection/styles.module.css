@@ -1,7 +1,7 @@
 .main {
   background-image: url(../../../images/landing_photo.jpg);
   height: 45rem;
-  width: 100vw;
+  width: 100%;
   background-size: contain;
   background-size: cover;
   background-repeat: no-repeat;

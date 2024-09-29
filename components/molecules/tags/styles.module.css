@@ -1,0 +1,9 @@
+.main {
+  padding: 1rem 1rem;
+  border: 1px solid grey;
+  letter-spacing: 0.5px;
+}
+
+.main h2 {
+  cursor: pointer;
+}
