@@ -12,15 +12,15 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
   const [isShowError, setShowError] = useState(false);
 
-  const LoginUser = async (isUserLoggedIn) => {
+  const LoginUser = async () => {
     try {
       const response = await login({ email, password });
 
       if (response.status === 200) {
         cookie.set("jwt", response.data.jwt_token);
-        cookie.set("user_id", response.data.uuid);
+        cookie.set("userId", response.data.uuid);
+        cookie.set("name", response.data.name);
         router.push("/");
-        isUserLoggedIn();
       }
     } catch (err) {
       console.log("error", err);

@@ -1,0 +1,30 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin: auto;
+  margin-top: 10rem;
+  letter-spacing: 0.5px;
+}
+
+.main input {
+  padding: 1rem 1rem;
+}
+.main h2 {
+  align-self: center;
+  margin: 2rem 0;
+}
+.main h3 {
+  align-self: center;
+  margin: 1rem 0;
+}
+.main button {
+  width: 200px;
+  align-self: center;
+  text-align: center;
+  margin-top: 1rem;
+}
+.error {
+  color: red;
+  margin-top: 10px;
+}

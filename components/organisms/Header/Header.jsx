@@ -2,9 +2,18 @@ import styles from "./styles.module.css";
 import Link from "next/link";
 import Button from "../../atoms/button/button";
 import { useRouter } from "next/router";
+import cookie from "js-cookie";
 
 const Header = ({ isUserLoggedIn, onSignOut }) => {
   const router = useRouter();
+  const jwt = cookie.get("jwt");
+
+  const handeClick = (e) => {
+    if (!jwt) {
+      e.preventDefault();
+      alert("You need to log in first");
+    }
+  };
 
   return (
     <div className={styles.wrapper}>
@@ -17,7 +26,9 @@ const Header = ({ isUserLoggedIn, onSignOut }) => {
             <Link href="/">HOME</Link>
           </li>
           <li>
-            <Link href="#">NEW QUESTION</Link>
+            <Link onClick={handeClick} href="/createDiscussion">
+              NEW DISCUSSION
+            </Link>
           </li>
           <li>
             <Link href="#">CATEGORIES</Link>

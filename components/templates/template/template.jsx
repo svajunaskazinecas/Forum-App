@@ -18,7 +18,8 @@ const PageTemplate = ({ children }) => {
 
   const signOut = () => {
     cookie.remove("jwt");
-    cookie.remove("user_id");
+    cookie.remove("userId");
+    cookie.remove("name");
     router.push("/");
     setIsUserLoggedIn(false);
   };

@@ -1,0 +1,26 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10rem;
+  align-items: center;
+  gap: 1rem;
+  letter-spacing: 0.5px;
+}
+.main button {
+  margin-top: 4rem;
+}
+.questionCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  background-color: var(--secondary-color);
+  padding: 2rem;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+  border-radius: 10px;
+}
+
+.leftHandSection h2 {
+  margin-bottom: 2rem;
+}
