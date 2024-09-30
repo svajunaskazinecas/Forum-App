@@ -13,7 +13,7 @@ const QuestionDetailsPage = () => {
   useEffect(() => {
     const { uuid } = router.query;
 
-    console.log("Router Query:", router.query); // Log router query
+    console.log("Router Query:", router.query);
 
     if (uuid) {
       const fetchQuestion = async () => {
@@ -21,7 +21,7 @@ const QuestionDetailsPage = () => {
           const response = await axios.get(
             `${process.env.NEXT_PUBLIC_SERVER_URL}/questions/${uuid}`
           );
-          console.log("API Response:", response.data); // Log API response
+          console.log("API Response:", response.data);
 
           if (response.data) {
             setQuestion(response.data);
