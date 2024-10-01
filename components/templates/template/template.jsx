@@ -20,6 +20,7 @@ const PageTemplate = ({ children }) => {
     cookie.remove("jwt");
     cookie.remove("userId");
     cookie.remove("name");
+    // localStorage.removeItem("votedAnswers");
     router.push("/");
     setIsUserLoggedIn(false);
   };

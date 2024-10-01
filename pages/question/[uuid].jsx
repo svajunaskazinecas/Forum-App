@@ -3,17 +3,14 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "./styles.module.css";
+import AnswerForm from "@/components/molecules/AnswerForm/AnswerForm";
 
 const QuestionDetailsPage = () => {
   const router = useRouter();
   const [question, setQuestion] = useState(null);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const { uuid } = router.query;
-
-    console.log("Router Query:", router.query);
 
     if (uuid) {
       const fetchQuestion = async () => {
@@ -21,32 +18,20 @@ const QuestionDetailsPage = () => {
           const response = await axios.get(
             `${process.env.NEXT_PUBLIC_SERVER_URL}/questions/${uuid}`
           );
-          console.log("API Response:", response.data);
 
           if (response.data) {
             setQuestion(response.data);
           } else {
-            setError("No question found.");
+            console.log("No question found.");
           }
         } catch (err) {
-          console.error("Error fetching question:", err);
-          setError("Error loading question details.");
-        } finally {
-          setLoading(false);
+          console.log("Error fetching question:", err);
         }
       };
 
       fetchQuestion();
     }
   }, [router.query.uuid]);
-
-  if (loading) {
-    return <p>Loading question details...</p>;
-  }
-
-  if (error) {
-    return <p>{error}</p>;
-  }
 
   if (!question) {
     return <p>No question details found.</p>;
@@ -65,6 +50,7 @@ const QuestionDetailsPage = () => {
           {new Date(question.date).toLocaleDateString()}
         </p>
       </div>
+      <AnswerForm />
     </PageTemplate>
   );
 };
