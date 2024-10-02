@@ -3,6 +3,11 @@
   padding: 0;
 }
 
+body {
+  min-width: 550px;
+  letter-spacing: 0.3px;
+}
+
 :root {
   --primary-color: rgb(255, 88, 59);
   --secondary-color: rgb(250, 236, 224);

@@ -22,9 +22,25 @@
   width: 200px;
   align-self: center;
   text-align: center;
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 .error {
   color: red;
   margin-top: 10px;
+  align-self: center;
+}
+
+.success {
+  color: green;
+  margin-top: 10px;
+}
+
+.main textarea {
+  height: 5rem;
+  padding: 1rem 1rem;
+}
+.checkboxWrapper {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.3rem;
 }

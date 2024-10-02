@@ -1,5 +1,4 @@
 import axios from "axios";
-import cookie from "js-cookie";
 
 export const login = async ({ email, password }) => {
   const body = {
@@ -15,18 +14,16 @@ export const login = async ({ email, password }) => {
   return response;
 };
 
-export const validateUser = async () => {
-  const jwt = cookie.get("token");
-
-  const headers = {
-    authorization: jwt,
+export const register = async ({ email, password, name }) => {
+  const body = {
+    email: email,
+    password: password,
+    name: name,
   };
 
-  const response = await axios.get(
-    `${process.env.NEXT_PUBLIC_SERVER_URL}/login/validate`,
-    {
-      headers,
-    }
+  const response = await axios.post(
+    `${process.env.NEXT_PUBLIC_SERVER_URL}/register`,
+    body
   );
 
   return response;

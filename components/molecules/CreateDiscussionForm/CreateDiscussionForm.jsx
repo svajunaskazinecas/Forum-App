@@ -10,6 +10,7 @@ const CreateDiscussionForm = () => {
   const [text, setText] = useState("");
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   const options = [
     "Technology & Innovation",
@@ -31,8 +32,14 @@ const CreateDiscussionForm = () => {
   const jwt = cookie.get("jwt");
 
   const addDiscussion = async () => {
-    if (selectedOptions.length === 0) {
-      setError("Please select at least one topic.");
+    if (
+      selectedOptions.length === 0 ||
+      title.length === 0 ||
+      text.length === 0
+    ) {
+      setError(
+        "Please select at least one topic, title and description cannot be empty."
+      );
       return;
     }
 
@@ -56,7 +63,10 @@ const CreateDiscussionForm = () => {
       );
 
       if (response.status === 201) {
-        router.push("/");
+        setSuccess("Discussion posted, redireccting to main page..");
+        setTimeout(() => {
+          router.push("/");
+        }, 2000);
       }
     } catch (err) {
       console.log(err);
@@ -68,13 +78,14 @@ const CreateDiscussionForm = () => {
       <h2>Share your thoughts</h2>
       <input
         value={title}
-        placeholder="title"
+        placeholder="Title"
         type="text"
         onChange={(e) => {
           setTitle(e.target.value);
         }}
       />
-      <input
+      <textarea
+        style={{ marginTop: "0.5rem" }}
         value={text}
         placeholder="Description"
         type="text"
@@ -94,6 +105,7 @@ const CreateDiscussionForm = () => {
           <label>{option}</label>
         </div>
       ))}
+      {success && <p className={styles.success}>{success}</p>}
       {error && <p className={styles.error}>{error}</p>}
       <Button title="Start Discussion" onClick={addDiscussion} />
     </div>

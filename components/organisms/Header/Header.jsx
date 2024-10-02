@@ -30,9 +30,6 @@ const Header = ({ isUserLoggedIn, onSignOut }) => {
               NEW DISCUSSION
             </Link>
           </li>
-          <li>
-            <Link href="#">CATEGORIES</Link>
-          </li>
         </ul>
         <div className={styles.btnWrapper}>
           {isUserLoggedIn ? (
@@ -49,7 +46,12 @@ const Header = ({ isUserLoggedIn, onSignOut }) => {
               >
                 Login
               </button>
-              <Button title="Sign Up" />
+              <Button
+                onClick={() => {
+                  router.push("/register");
+                }}
+                title="Sign Up"
+              />
             </>
           )}
         </div>

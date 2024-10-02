@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import styles from "./styles.module.css";
 import PageTemplate from "@/components/templates/template/template";
 import Button from "@/components/atoms/button/button";
-import DeleteQuestionButton from "@/components/deleteQuestionButton/deleteQuestionButton";
+import DeleteQuestionButton from "@/components/atoms/deleteQuestionButton/deleteQuestionButton";
 
 const QuestionsPage = () => {
   const router = useRouter();

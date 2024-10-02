@@ -17,11 +17,16 @@ const PageTemplate = ({ children }) => {
   }, []);
 
   const signOut = () => {
+    const isConfirmed = window.confirm("Are you sure you want to Sign Out?");
+
+    if (!isConfirmed) return;
+
     cookie.remove("jwt");
     cookie.remove("userId");
     cookie.remove("name");
     // localStorage.removeItem("votedAnswers");
     router.push("/");
+
     setIsUserLoggedIn(false);
   };
 
